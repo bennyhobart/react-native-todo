@@ -18,6 +18,9 @@ class TodoActions {
   removeSelectedTodos() {
     this.dispatch()
   }
+  selectAll() {
+    this.dispatch()
+  }
 }
 
 module.exports = alt.createActions(TodoActions);

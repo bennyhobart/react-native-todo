@@ -11,7 +11,8 @@ class TodoStore {
             handleUpdateTodo: TodoActions.UPDATE_TODO,
             handleRemoveTodo: TodoActions.REMOVE_TODO,
             handleRemoveSelectedTodos: TodoActions.REMOVE_SELECTED_TODOS,
-            handleSetSelectedTodo: TodoActions.SET_SELECTED_TODO
+            handleSetSelectedTodo: TodoActions.SET_SELECTED_TODO,
+            handleSelectAll: TodoActions.SELECT_ALL
         });
     }
 
@@ -45,6 +46,12 @@ class TodoStore {
             return id === todo.id;
         });
         todo.selected = value;
+    }
+
+    handleSelectAll () {
+        _.map(this.todos, function (todo) {
+            todo.selected = true;
+        });
     }
 }
 

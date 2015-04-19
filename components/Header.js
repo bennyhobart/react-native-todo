@@ -8,14 +8,19 @@ var {
 } = React;
 
 var Header = React.createClass({
-    _onPress: function () {
-      console.log('hi');
+    _addItem: function () {
       TodoActions.addTodo('');
+    },
+    _selectAll: function () {
+      TodoActions.selectAll();
     },
     render: function() {
         return (
             <View style={styles.container}>
                 <View style={styles.flex1}>
+                  <TouchableOpacity onPress={this._selectAll}>
+                    <Text>Select All</Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.flex1}>
                     <Text style={styles.textCenter}>
@@ -23,7 +28,7 @@ var Header = React.createClass({
                     </Text>
                 </View>
                 <View style={styles.flex1}>
-                    <TouchableOpacity onPress={this._onPress}>
+                    <TouchableOpacity onPress={this._addItem}>
                         <Text style={styles.textRight}>Add Item</Text>
                     </TouchableOpacity>
                 </View>
